@@ -1,0 +1,645 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+/*.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), transparent), url(download.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+*/
+
+.navbar {
+    width: 100%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*background-color: rgb(39, 40, 56);*/
+    
+}
+
+.logo {
+    width: 120px;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0%;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+.contenthome {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: #197d73;
+    padding-top: 60px; /* Adjust the padding to make room for the fixed navbar */
+    height:device-height;
+    height: 100vh;
+    /*background-color:rgb(39, 40, 56);*/
+    
+
+}
+.contentdetails {
+    /*background-color:rgb(100, 101, 54);*/
+    position: relative;
+    width: 100%;
+    text-align: center;
+    color: #8a9cee;
+    /*padding-top: 60px; /* Adjust the padding to make room for the fixed navbar */
+    height: 100vh;
+    
+    
+}
+
+.contenthome h1 {
+    font-size: 70px;
+    margin-top: 80px;
+    color: #007bb5;
+}
+
+.contentdetails h1 {
+    color: violet    ;
+}
+.contenttimeline h1 {
+    color: violet    ;
+}
+.ABOUTUS h1 {
+    color: violet    ;
+}
+
+.contentdetails p {
+    width: 70%; /* Adjust the width as needed */
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    text-align: center;
+    font-size: large;
+    
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #197d73;
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button span {
+    background: #197d73;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+}
+
+.contenttimeline {
+    position: relative;
+    /*background-color: rgb(165, 165, 165);*/
+    width: 100%;
+    height: 100vh;
+    color: #009688;
+    text-align: center;
+    overflow: hidden; /* Ensure the content doesn't overflow */
+
+    /* Adjust padding if needed */
+    /*padding-top: 120px; /* Adjust the padding for the fixed navbar */
+
+    /* Add a pseudo-element for the parallax effect */
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('download.jpeg') center/cover no-repeat fixed;
+        z-index: -1; /* Place it behind the content */
+    }
+}
+
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+  }
+  #loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #fff;
+    z-index: 1000;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  #loader-wrapper .loader-section.section-left {
+    left: 0;
+  }
+  #loader-wrapper .loader-section.section-right {
+    right: 0;
+  }
+  #loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #6f5414;
+    -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+    z-index: 99999;
+  }
+  #loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #2bbc1b;
+    -webkit-animation: spin 3s linear infinite;
+            animation: spin 3s linear infinite;
+  }
+  #loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #7822f9;
+    -webkit-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+  }
+  .loaded #loader-wrapper {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition: all 0.3s 1s ease-out;
+    transition: all 0.3s 1s ease-out;
+  }
+  .loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+  .loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+
+
+}
+body{
+    line-height:1.3em;
+    min-width:920px;
+  }
+  .history-tl-container{
+      font-family: "Roboto",sans-serif;
+    width:50%;
+    margin:auto;
+    display:block;
+    position:relative;
+  }
+  .history-tl-container ul.tl{
+      margin:20px 0;
+      padding:0;
+      display:inline-block;
+  
+  }
+  .history-tl-container ul.tl li{
+      list-style: none;
+      margin:auto;
+      margin-left:200px;
+      min-height:50px;
+      /*background: rgba(255,255,0,0.1);*/
+      border-left:1px dashed #86D6FF;
+      padding:0 0 50px 30px;
+      position:relative;
+  }
+  .history-tl-container ul.tl li:last-child{ border-left:0;}
+  .history-tl-container ul.tl li::before{
+      position: absolute;
+      left: -18px;
+      top: -5px;
+      content: " ";
+      border: 8px solid rgba(255, 255, 255, 0.74);
+      border-radius: 500%;
+      background: #258CC7;
+      height: 20px;
+      width: 20px;
+      transition: all 500ms ease-in-out;
+  
+  }
+  .history-tl-container ul.tl li:hover::before{
+      border-color:  #258CC7;
+      transition: all 1000ms ease-in-out;
+  }
+  ul.tl li .item-title{
+
+  }
+  ul.tl li .item-detail{
+      color:rgba(0,0,0,0.5);
+      font-size:12px;
+  }
+  ul.tl li .timestamp{
+      color: #8D8D8D;
+      position: absolute;
+    width:100px;
+      left: -50%;
+      text-align: right;
+      font-size: 12px;
+  }
+  
+.ABOUTUS {
+    text-align: center;
+    padding: 50px;
+    /*background-color: #fff;*/
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 600px;
+    position: relative;
+    height: 80vh;
+    
+}
+
+.ABOUTUS, h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.ABOUTUS img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    animation: scaleIn 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+  button {
+              --glow-color: rgb(217, 176, 255);
+              --glow-spread-color: rgba(191, 123, 255, 0.781);
+              --enhanced-glow-color: rgb(231, 206, 255);
+              --btn-color: rgb(100, 61, 136);
+              border: .25em solid var(--glow-color);
+              padding: 1em 3em;
+              color: var(--glow-color);
+              font-size: 15px;
+              font-weight: bold;
+           
+              background-color: var(--btn-color);
+              border-radius: 1em;
+              outline: none;
+              box-shadow: 0 0 1em .25em var(--glow-color),
+                  0 0 4em 1em var(--glow-spread-color),
+                  inset 0 0 .75em .25em var(--glow-color);
+              text-shadow: 0 0 .5em var(--glow-color);
+              position: relative;
+              transition: all 0.3s;
+          }
+  
+          button::after {
+              pointer-events: none;
+              content: "";
+              position: absolute;
+              top: 120%;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              background-color: var(--glow-spread-color);
+              filter: blur(2em);
+              opacity: .7;
+              transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+          }
+  
+          button:hover {
+              color: var(--btn-color);
+              background-color: var(--glow-color);
+              box-shadow: 0 0 1em .25em var(--glow-color),
+                  0 0 4em 2em var(--glow-spread-color),
+                  inset 0 0 .75em .25em var(--glow-color);
+          }
+  
+          button:active {
+              box-shadow: 0 0 0.6em .25em var(--glow-color),
+                  0 0 2.5em 2em var(--glow-spread-color),
+                  inset 0 0 .5em .25em var(--glow-color);
+          }
+.CONTACTUS body {
+    background: #D0D8DB;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.CONTACTUS textarea {
+    resize: none;
+}
+
+.CONTACTUS text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.CONTACTUS{
+
+ @charset "UTF-8";
+
+}
+
+.svg-inline--fa {
+  vertical-align: -0.200em;
+}
+
+.rounded-social-buttons {
+  text-align: center;
+}
+
+.rounded-social-buttons .social-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 5.125rem;
+  height: 3.125rem;
+  border: 0.125rem solid transparent;
+  padding: 0;
+  text-decoration: none;
+  text-align: center;
+  color: #fefefe;
+  font-size: 1.5625rem;
+  font-weight: normal;
+  line-height: 2em;
+  border-radius: 1.6875rem;
+  transition: all 0.5s ease;
+  margin-right: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.rounded-social-buttons .social-button:hover, .rounded-social-buttons .social-button:focus {
+  -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-tiktok, .fa-youtube, .fa-instagram {
+  font-size: 25px;
+}
+
+.rounded-social-buttons .social-button.facebook {
+  background: #3b5998;
+}
+
+.rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
+  color: #3b5998;
+  background: #fefefe;
+  border-color: #3b5998;
+}
+
+.rounded-social-buttons .social-button.twitter {
+  background: #55acee;
+}
+
+.rounded-social-buttons .social-button.twitter:hover, .rounded-social-buttons .social-button.twitter:focus {
+  color: #55acee;
+  background: #fefefe;
+  border-color: #55acee;
+}
+
+.rounded-social-buttons .social-button.linkedin {
+  background: #007bb5;
+}
+
+.rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
+  color: #007bb5;
+  background: #fefefe;
+  border-color: #007bb5;
+}
+
+.rounded-social-buttons .social-button.tiktok {
+  background: #000000;
+}
+
+.rounded-social-buttons .social-button.tiktok:hover, .rounded-social-buttons .social-button.tiktok:focus {
+  color: #000000;
+  background: #fefefe;
+  border-color: #000000;
+}
+
+.rounded-social-buttons .social-button.youtube {
+  background: #bb0000;
+}
+
+.rounded-social-buttons .social-button.youtube:hover, .rounded-social-buttons .social-button.youtube:focus {
+  color: #bb0000;
+  background: #fefefe;
+  border-color: #bb0000;
+}
+
+.rounded-social-buttons .social-button.instagram {
+  background: #125688;
+}
+
+.rounded-social-buttons .social-button.instagram:hover, .rounded-social-buttons .social-button.instagram:focus {
+  color: #125688;
+  background: #fefefe;
+  border-color: #125688;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+    transform: translateY(-100%);
+  }
+  .loaded #loader {
+    opacity: 0;
+  } 
+  .parallax {
+    /* The image used */
+    background-image: url("download1.jpg");
+  
+    /* Set a specific height */
+    min-height: 500px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+@import 'https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap';
+
+.backspace body {
+  background: #f1f3f2;
+  font-family: 'Source Code Pro', monospace;
+  min-height: 90vh;
+  /* Important for centering content */
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.backspace h1 {
+  position: relative;
+  font-size: 3em;
+}
+
+.backspace h2 {
+  font-size: 2em;
+}
+
+/* The static text remains fixed while the dynamic text is typed */
+.hybrid {
+  margin: 0;
+  padding-left: 50px;
+  position: absolute;
+  width: auto;
+  float: left;
+  left: 37%;
+  
+  
+}
+
+.backspace span {
+  color: #1100f1;
+}
+
+/* This is for inserting a cursor */
+.hybrid span::after {
+  align-self: center;
+  content: '|';
+  transition: .05s;
+  animation: blink 1.5s infinite;
+}
+
+/* This is for the cursor blinking effect */
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: 0;
+  }
+}

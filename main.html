@@ -1,0 +1,213 @@
+<html>
+    <head>
+        <title>CODEDOC</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+      <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+      </div>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function() {
+            document.querySelector("body").classList.add("loaded");
+          }, 2000); // Adjusted timeout to 5000 milliseconds (5 seconds)
+        });
+      </script>
+      
+      <div class="parallax">
+      
+        <div class="banner">
+            <div class="navbar">
+                <ul>
+                    <li><a href="#HOME">HOME</a></li>
+                    <li><a href="#DETAILS">DETAILS</a></li>
+                    <li><a href="#TIMELINE">TIMELINE</a></li>
+                    <li><a href="#ABOUTUS">ABOUT US</a></li> 
+                    <li><a href="#CONTACTUS">CONTACT US</a></li>
+                    <li><a href="hackahon.html">HACKATHON</a></li>
+                    <br>
+
+                    <br>
+
+                    <a href="#HOME"><img src="logo.jpg" alt="HTML tutorial" style="width:100px;height: 50px; "></a>
+                </ul>
+            </div>
+            
+            <div class="contenthome" id="HOME">
+
+              
+                
+                <h1>CODEDOC</h1>
+
+                <div class="backspace" id="backspace">
+                  <h2><span>Hi!Welcome</span></h2>
+                  <h1></h1>
+                  <h2 class="hybrid"> I am  <span id="typed"> </span></h2>
+                  <br>
+                  <br>
+                  <script>
+                    // These are the words we want to display
+const txt = ["GOKUL", "SAIF", "AARYAN"];
+
+// These are increment and decrement counters
+let i = 0,
+  j = 0;
+
+// This is for checking if all the characters of the word have been typed
+let end = false;
+
+// This will be the waiting function, to give delay after typing
+function wait(seconds) {
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+}
+
+// The main function to type and backspace multiple words
+async function main() {
+  // Check if the value of i is less than array length of txt containing all the words
+  if (i < txt.length) {
+    // This is for the auto typing
+    if (end == false && j <= txt[i].length) {
+      document.getElementById("typed").innerHTML += txt[i][j];
+      j++;
+    }
+
+    // This is for backspacing the characters one by one
+    if (end == true && j <= txt[i].length) {
+      document.getElementById("typed").innerHTML = txt[i].substring(0, j - 1);
+      j--;
+    }
+
+    // This is for checking if all the characters have been typed
+    if (j == txt[i].length) {
+      end = true;
+      await wait(2);
+    }
+
+    // This is for going to the next word
+    if (end == true && j == 0) {
+      i++;
+      end = false;
+    }
+  }
+  // If the value of i becomes greater than or equal to the array length, reset i to 0
+  else i = 0;
+
+  setTimeout(main, 200);
+}
+main();
+
+                  </script>
+
+                </div>
+
+
+                <br>
+                <br>
+                
+                <div>
+                    <a>
+                        <button type="button"><span></span>REGISTER</button>
+                    </a>
+                    <a href="hackahon.html">
+                        <button type="button"><span></span>Hackathon</button>
+                    </a>
+                </div>    
+            </div>
+            <div class="contentdetails" id="DETAILS"> 
+                <br>
+                <br>
+                
+                <h1>DETAILS</h1>
+                
+                <p>
+                  <q>Dive into two days of non-stop innovation! Experience the ultimate blend of hackathon adrenaline and ideathon brilliance. Open to all skill levels – join inspiring speakers, tackle five rounds of coding challenges, and delve into engaging activities between rounds. Whether you're a coding wizard or exploring the tech world, this event is your playground to turn dreams into digital magic. Don't miss out – come hack, ideate, and create with us!</q>
+                </p>
+            </div>
+            <div class="contenttimeline" id="TIMELINE">
+                <h1>
+                  <br>
+                  <br>
+                   TIMELINE
+                </h1>
+
+                
+                    <link href='//fonts.googleapis.com/css?family=Roboto:200,400,600' rel='stylesheet' type='text/css'>
+                    <div class="history-tl-container">
+                      <ul class="tl">
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                          <div class="timestamp">
+                            3rd March 2015<br> 7:00 PM
+                          </div>
+                          <div class="item-title">Start from Shire</div>
+                          <div class="item-detail">Don't forget the ring</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                          <div class="timestamp">
+                            19th March 2015<br> 3:00 PM
+                          </div>
+                          <div class="item-title">Kill some Orcs</div>
+                          <div class="item-detail">Don't enter the caves!!</div>
+                        </li>
+                        <li class="tl-item" ng-repeat="item in retailer_history">
+                          <div class="timestamp">
+                            1st June 2015<br> 7:00 PM
+                          </div>
+                          <div class="item-title">Throw that goddamn ring in the lava</div>
+                          <div class="item-detail">Also, throw that Gollum too</div>
+                        </li>
+                    
+                      </ul>
+                      <br>
+                      <br>
+                      <div class="glowingbutton " id="glowingbutton">
+                        <a href="hackahon.html">
+                          <button type="button"><span></span>Hackathon</button>
+                      </a>
+
+                      </div>
+
+                      
+                    
+                    </div>
+
+        </div>
+        
+
+        <div class="ABOUTUS" id="ABOUTUS">
+            <img src="download.jpeg" alt="About Us Image">
+            <h1>
+                ABOUT US
+            </h1>
+        </div>
+        
+
+        <div class="CONTACTUS" id="CONTACTUS">
+
+          <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+
+<footer>
+  <div class="rounded-social-buttons">
+                    <a class="social-button facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-button twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a class="social-button linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a class="social-button tiktok" href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a class="social-button youtube" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a class="social-button instagram" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+
+                
+</footer>
+          
+        </div>
+
+        </div>
+        
+        </div>
+    </body>
+</html>
